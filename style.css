@@ -1,0 +1,32 @@
+body {
+  font-family: Arial, sans-serif;
+  padding: 20px;
+  background-color: #f4f4f4;
+}
+
+h1 {
+  text-align: center;
+}
+
+.news-article {
+  background-color: white;
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.news-article img {
+  max-width: 100%;
+  height: auto;
+  margin-top: 10px;
+}
+
+.news-article a {
+  color: #007BFF;
+  text-decoration: none;
+}
+
+.news-article a:hover {
+  text-decoration: underline;
+}
