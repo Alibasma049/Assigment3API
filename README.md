@@ -21,13 +21,14 @@ https://newsapi.org/docs
 
 ## Project Structure
 
-- `index.html` — main HTML page
-- `style.css` — CSS styles
+- index.html — main HTML page
+- style.css — CSS styles
 - *(JavaScript is embedded inside `index.html`)*
 
 ## Deployment
 
 The project is deployed live at:  
+https://alibasma049.github.io/Assigment3API/
 
 ## Author
 
