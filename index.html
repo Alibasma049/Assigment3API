@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>News API Demo</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Top Headlines (US)</h1>
+
+  <p class="doc-link">
+    This demo uses the <a href="https://newsapi.org/docs" target="_blank">NewsAPI.org documentation</a>.
+  </p>
+
+  <div id="news-container"></div>
+
+  <script>
+    const apiKey = "3eda911b69634b89a42630702880c599";
+    const url = `https://corsproxy.io/?https://newsapi.org/v2/top-headlines?country=us&apiKey=${apiKey}`;
+    const container = document.getElementById("news-container");
+
+    fetch(url)
+      .then(response => response.json())
+      .then(data => {
+        const articles = data.articles;
+        if (!articles || articles.length === 0) {
+          container.innerHTML = "<p>No news articles found.</p>";
+          return;
+        }
+
+        articles.forEach(article => {
+          const div = document.createElement("div");
+          div.className = "news-article";
+          div.innerHTML = `
+            <h2>${article.title}</h2>
+            <p>${article.description || "No description available."}</p>
+            ${article.urlToImage ? `<img src="${article.urlToImage}" alt="News image">` : ""}
+            <p><a href="${article.url}" target="_blank">Read more</a></p>
+          `;
+          container.appendChild(div);
+        });
+      })
+      .catch(error => {
+        container.innerHTML = "<p>Could not load news. Check console for details.</p>";
+        console.error("Error fetching news:", error);
+      });
+  </script>
+</body>
+</html>
